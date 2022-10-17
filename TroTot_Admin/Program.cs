@@ -1,4 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using TroTot_Admin.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Conect database
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+});
 
 // Add services to the container.
 builder.Services.AddRazorPages();

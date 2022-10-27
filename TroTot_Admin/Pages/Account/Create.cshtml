@@ -4,66 +4,61 @@
 @{
     ViewData["Title"] = "Create";
 }
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<h1>Create</h1>
+<div class="signup-form">
+    <form method="post" class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-8 offset-4">
+                <h2>Create New User</h2>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="User.username" class="control-label col-form-label col-4"></label>
+            <div class="col-8">
+                <input asp-for="User.username" type="text" class="form-control" name="username" />
+                @if (ViewData["Message"] != null && ViewData["Message"] == "Exist")
+                {
+                    <span style="color:red;">Username already exist.</span>
+                }
+            </div>
+        </div>
+        <span asp-validation-for="User.username" class="text-danger"></span>
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="User.username" class="control-label"></label>
-                <input asp-for="User.username" class="form-control" />
-                <span asp-validation-for="User.username" class="text-danger"></span>
+        <div class="form-group row">
+            <label asp-for="User.email" class="control-label col-form-label col-4"></label>
+            <div class="col-8">
+                <input asp-for="User.email" type="email" class="form-control" name="email" />
             </div>
-            <div class="form-group">
-                <label asp-for="User.password" class="control-label"></label>
-                <input asp-for="User.password" class="form-control" />
-                <span asp-validation-for="User.password" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <label asp-for="User.password" class="control-label col-form-label col-4"></label>
+            <div class="col-8">
+                <input asp-for="User.password" type="password" class="form-control" name="password" />
             </div>
-            <div class="form-group">
-                <label asp-for="User.email" class="control-label"></label>
-                <input asp-for="User.email" class="form-control" />
-                <span asp-validation-for="User.email" class="text-danger"></span>
+        </div>
+        @*        <div class="form-group row">
+        <label class="control-label col-form-label col-4">Confirm Password</label>
+        <div class="col-8">
+        <input asp-for="User.email" type="password" class="form-control" name="confirm_password"/>
+        </div>
+        </div>*@
+        <div class="form-group row">
+            <div class="col-8 offset-4">
+                <button type="submit" class="btn btn-secondary btn-lg">Create</button>
             </div>
-            <div class="form-group">
-                <label asp-for="User.phone_number" class="control-label"></label>
-                <input asp-for="User.phone_number" class="form-control" />
-                <span asp-validation-for="User.phone_number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.full_name" class="control-label"></label>
-                <input asp-for="User.full_name" class="form-control" />
-                <span asp-validation-for="User.full_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.create_at" class="control-label"></label>
-                <input asp-for="User.create_at" class="form-control" />
-                <span asp-validation-for="User.create_at" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.role_id" class="control-label"></label>
-                <input asp-for="User.role_id" class="form-control" />
-                <span asp-validation-for="User.role_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.avatar" class="control-label"></label>
-                <input asp-for="User.avatar" class="form-control" />
-                <span asp-validation-for="User.avatar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
+        </div>
+    </form>
+    <div class="text-center "><a asp-page="Index" class="text-decoration-none">Back</a></div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,47 @@
+﻿@page
+@model TroTot_Admin.Pages.Login.IndexModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TroTot_Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TroTot_Admin.styles.css" asp-append-version="true" />
+</head>
+<body style="background-color:#508bfc;">
+    <div>
+        <div class="col-md-4 row offset-4 card" style="background-color:#ffffff;border-radius: 1rem;margin-top:9%">
+            <div class="col-md-10 offset-1">
+                <section>
+                    <form id="account" method="post">
+                        <h1 class="mb-3" style="text-align:center;margin-top:4%">Login</h1>
+                        <hr />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" />
+                            <label asp-for="Input.UserName" class="form-label"></label>
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3" style="margin-bottom:30px">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                            <label asp-for="Input.Password" class="form-label"></label>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class=" mb-4">
+                            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TroTot_Admin.Model
 {
@@ -28,7 +29,11 @@ namespace TroTot_Admin.Model
         public DateTime create_at { get; set; }
         [Required]
         [Display(Name = "Role")]
+
         public int role_id { get; set; }
-        public string avatar { get; set; }
+        [ForeignKey("role_id")]
+
+        public Role? Role { get; set; }
+        public string? avatar { get; set; }
     }
 }

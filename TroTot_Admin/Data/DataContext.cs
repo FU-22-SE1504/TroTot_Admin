@@ -7,7 +7,8 @@ namespace TroTot_Admin.Infrastructure
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<User> User { get; set; } 
+        public DbSet<User> User { get; set; }
+        public DbSet<Role> Role { get; set; }
 
     }
 }

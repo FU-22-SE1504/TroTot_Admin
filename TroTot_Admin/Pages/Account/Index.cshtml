@@ -43,17 +43,12 @@
                         <tr>
                             <td>@Html.DisplayFor(modelItem => item.user_id)</td>
                             <td><a asp-page="./Details" asp-route-id="@item.user_id"> @Html.DisplayFor(modelItem => item.username)</a></td>
-                            @*<td><a href="#">@Encoding.UTF8.GetString(Convert.From(item.avatar))</td>*@
+                            <td>
+                
+                            </td>
                             <td>@Convert.ToDateTime(item.create_at).ToString("dd/MM/yyyy")</td>
                             <td>
-                                @if (item.role_id == 0)
-                                {
-                                    <p class="m-0">Admin</p>
-                                }
-                                else
-                                {
-                                    <p class="m-0">User</p>
-                                }
+                                @item.Role?.role_name
                             </td>
                             <td>@Html.DisplayFor(modelItem => item.email)</td>
                             <td>
@@ -79,70 +74,3 @@
         </div>
     </div>
 </div>
-
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].phone_number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].full_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].create_at)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].role_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].avatar)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.User) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone_number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.full_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.create_at)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.role_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.avatar)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.user_id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.user_id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.user_id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@

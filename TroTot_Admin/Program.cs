@@ -18,7 +18,10 @@ builder.Services.AddSession(options =>
 });
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AddPageRoute("/Login", "");
+});
 
 var app = builder.Build();
 
